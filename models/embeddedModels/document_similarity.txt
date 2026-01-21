@@ -1,0 +1,59 @@
+
+PROJECT PROBLEM STATEMENT
+-------------------------
+
+We want to build a simple semantic search system using embedding models.
+
+Problem:
+- We have multiple text documents (sentences about planets).
+- A user asks a natural language question.
+- We need to find which document best answers the user’s question.
+- Normal keyword search is not reliable because users may use different words.
+- So we use embeddings to compare meaning instead of exact words.
+
+
+WHAT THIS PROJECT DOES
+----------------------
+
+1. We store small documents (sentences about planets).
+2. We convert each document into a numerical vector using an embedding model.
+3. We convert the user’s query into a numerical vector.
+4. We compare the query vector with each document vector.
+5. We find the document whose meaning is closest to the query.
+6. We return the most relevant document as the result.
+
+
+HOW IT WORKS (STEP-BY-STEP)
+---------------------------
+
+Step 1: Document Preparation
+- Each sentence acts as a small knowledge unit.
+- These documents are stored in an array.
+
+Step 2: Embedding Generation
+- We use a Gemini embedding model via LangChain.
+- The model converts text into fixed-size vectors.
+- Similar meanings produce similar vectors.
+
+Step 3: Query Embedding
+- The user’s question is also converted into a vector.
+- This allows fair comparison with document vectors.
+
+Step 4: Similarity Calculation
+- We use cosine similarity to compare vectors.
+- Higher cosine similarity means closer meaning.
+
+Step 5: Best Match Selection
+- We loop through all document vectors.
+- We select the document with the highest similarity score.
+- That document is considered the best answer.
+
+
+WHY EMBEDDINGS ARE USED
+----------------------
+
+- Embeddings capture semantic meaning, not keywords.
+- Example:
+  "Red Planet" → "Mars"
+- Even if words differ, embeddings match meaning.
+
