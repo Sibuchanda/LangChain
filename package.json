@@ -18,9 +18,11 @@
     "@langchain/core": "^1.1.12",
     "@langchain/google-genai": "^2.1.7",
     "@langchain/openai": "^1.2.1",
+    "@types/readline-sync": "^1.4.8",
     "dotenv": "^17.2.3",
     "langchain": "^1.2.7",
-    "ml-distance": "^4.0.1"
+    "ml-distance": "^4.0.1",
+    "readline-sync": "^1.4.10"
   },
   "devDependencies": {
     "@types/node": "^25.0.6",
