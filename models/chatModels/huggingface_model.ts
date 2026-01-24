@@ -1,16 +1,23 @@
-import "dotenv/config";
-import OpenAI from "openai";
+import 'dotenv/config'
+import { ChatHuggingFace } from '@langchain/community/chat_models/hf'
+import { HumanMessage } from '@langchain/core/messages'
 
-const client = new OpenAI({
-  baseURL: "https://router.huggingface.co/v1",
-  apiKey: process.env.HF_TOKEN
-});
+const apiKey = process.env.HUGGINGFACEHUB_API_TOKEN
+if (!apiKey) throw new Error('HF token missing')
 
-const completion = await client.chat.completions.create({
-  model: "moonshotai/Kimi-K2-Instruct-0905:groq",
-  messages: [
-    { role: "user", content: "What is the capital of France?" }
-  ]
-});
+const model = new ChatHuggingFace({
+  model: 'mistralai/Mistral-7B-Instruct-v0.2',
+  temperature: 0.7,
+  maxTokens: 200,
+  apiKey,
+})
 
-console.log(completion.choices[0].message.content);
+async function run() {
+  const response = await model.invoke([
+    new HumanMessage('Explain LangChain in simple words'),
+  ])
+
+  console.log(response.content)
+}
+
+run()
