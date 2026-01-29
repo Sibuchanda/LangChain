@@ -14,14 +14,17 @@
   "description": "",
   "dependencies": {
     "@huggingface/inference": "^4.13.6",
-    "@langchain/community": "^1.1.3",
-    "@langchain/core": "^1.1.12",
+    "@langchain/classic": "^1.0.11",
+    "@langchain/community": "^1.1.8",
+    "@langchain/core": "^1.1.17",
     "@langchain/google-genai": "^2.1.7",
     "@langchain/openai": "^1.2.1",
     "@types/readline-sync": "^1.4.8",
     "dotenv": "^17.2.3",
     "langchain": "^1.2.7",
     "ml-distance": "^4.0.1",
+    "pdf-parse": "^1.1.1",
+    "playwright": "^1.58.0",
     "readline-sync": "^1.4.10"
   },
   "devDependencies": {
